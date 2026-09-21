@@ -11,8 +11,20 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
 
+
 st.set_page_config(page_title="Bulk Barcode Generator", layout="wide")
 st.title("Bulk Barcode Generator")
+
+# --- Hide Streamlit / GitHub Footer ---
+hide_footer_style = """
+    <style>
+    /* Hides the bottom left profile / creator tag & footer */
+    footer {visibility: hidden;}
+    [data-testid="stHeader"] {background: rgba(0,0,0,0);}
+    #MainMenu {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_footer_style, unsafe_allow_html=True)
 
 # --- Initialize Session State Variables ---
 if "zip_data" not in st.session_state:
